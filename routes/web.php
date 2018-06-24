@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'UserController@index')->name('home');
 
 Auth::routes();
 Route::redirect('/register', '/login', 301);
