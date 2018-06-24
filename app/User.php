@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Enums\AccessRights;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'access_rights_id',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -24,14 +25,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'access_rights_id'
+        'password', 'remember_token', 'access_rights',
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return bool
      */
-    protected function accessRights()
+    public function isAdmin()
     {
-         return $this->hasOne(AccessRights::class);
+        return $this->access_rights === AccessRights::ADMIN_ACCESS_RIGHT;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Database\Seeder, \Illuminate\Support\Facades\DB;
+use Illuminate\Database\Seeder, \Illuminate\Support\Facades\DB, \App\Enums\AccessRights;
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => str_random(10).'@gmail.com',
             'password' => bcrypt('secret'),
-            'access_rights_id' => 1
+            'access_rights' => AccessRights::ADMIN_ACCESS_RIGHT
         ]);
 
         factory(App\User::class, 50)->create();
