@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Enums\AccessRights;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -24,6 +25,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'access_rights',
     ];
+
+    /**
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->access_rights === AccessRights::ADMIN_ACCESS_RIGHT;
+    }
 }
