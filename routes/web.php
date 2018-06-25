@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'UserController@index')->name('home');
 
 Auth::routes();
 Route::redirect('/register', '/login', 301);
+
+Route::post('/user/update/access-rights', 'UserController@updateAccessRights')->name('user.update.access_rights');
