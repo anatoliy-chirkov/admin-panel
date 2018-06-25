@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>{{include('../resources/assets/js/users/access_rights.js')}}</script>
+<script>{{include('../resources/assets/js/users/access_rights.js')}}</script> {{--TODO: Заменить include на формат asset (после установки npm)--}}
 
 @section('content')
 <div class="container">
