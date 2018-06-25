@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\AccessRights;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -80,6 +81,17 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //
+    }
+
+    /**
+     * @param Request $request
+     * @return string
+     */
+    public function updateAccessRights(Request $request)
+    {
+        User::find($request->id)->update(['access_rights' => $request->access_rights]);
+
+        return AccessRights::NAMES[$request->access_rights];
     }
 
     /**
