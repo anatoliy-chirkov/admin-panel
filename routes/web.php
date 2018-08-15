@@ -24,4 +24,7 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 // Update User's Access Rights
-Route::post('/user/update/access-rights', 'UserController@updateAccessRights')->name('user.update.access_rights');
+Route::post('user/update/access-rights', 'UserController@updateAccessRights')->name('user.update.access_rights');
+
+Route::get('chat', 'ChatMessageController@index')->name('chat');
+Route::post('chat/store', 'ChatMessageController@store')->name('chat.store');
